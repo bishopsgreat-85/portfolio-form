@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Engineering</title>
+    <link rel="stylesheet" href="styles.css"/>   
+ </head>
+ <body> 
+
+   <div class="form-card">
+    <header class="header">
+      <img src="logo1.png" alt="University Logo" class="logo"/>
+      <img src="logo2.png" alt="NACOMES Logo" class="logo"/>
+      <div class="header-text">  
+        <h1>DEPARTMENT OF COMPUTER ENGINEERING</h1>
+        <h2>CARRYOVER/RESIT COURSE REGISTRATION FORM</h2>
+      </div>  
+    </header>
+     
+        
+         
+       <form action="https://formspree.io/f/mkjodebq" method="POST" id="registration"> 
+         <div class="form-row">
+          <div class="form-group">
+           <label for="fullName">Full Name:</label>
+           <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+          </div>
+         </div> 
+
+         <div class="form-row">
+          <div class="form-group">
+           <label for="matricNo">Matriculation Number</label> 
+           <input type="text" id="matricNo" name="matricNo" placeholder="e.g. 250404010056" required>
+          </div>
+         </div> 
+       
+         <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" placeholder="student@university.edu.ng" required/>
+          </div>
+         </div> 
+
+         <div class="form-row">
+          <div class="form-group">
+           <label for="text">Department:</label> 
+            <select id="department" name="department" required>
+                <option value="computer engineering">Computer Engineering</option>
+            </select>
+          </div>  
+         </div> 
+          
+         <div class="form-row">
+          <div class="form-group">
+            <label for="level-select">Level</label>
+            <select id="level-select" name="level" onchange="showCourses( )" required>
+             <option value="">Choose your level</option>
+             <option value="100">100</option>
+             <option value="200">200</option>
+             <option value="300">300</option>
+             <option value="400">400</option> 
+             <option value="500">500</option>
+            </select>
+          </div>
+         </div>   
+        
+
+         <div id="courses-100" class="course-section" style="display: none;">
+           <label class="section-label">100 Level Courses</label>
+           <div class="checkbox-grid">
+             <label class="checkbox-card">
+              <input type="checkbox" name="courses" value="GST 111"/>
+              <span>GST 111</span>
+             </label>
+             <label class="checkbox-card">
+              <input type="checkbox" name="courses" value="LIB 101"/>
+              <span>LIB 101</span>
+             </label>
+             <label class="checkbox-card">
+              <input type="checkbox" name="courses" value="MTH 101"/>
+              <span>MTH 101</span>
+             </label>
+             <label class="checkbox-card">
+              <input type="checkbox" name="courses" value="MTH 103"/>
+              <span>MTH 103</span>
+             </label>
+             <label class="checkbox-card">
+              <input type="checkbox" name="courses" value="CHM 101"/>
+              <span>CHM 101</span>
+             </label>
+             <label class="checkbox-card">
+              <input type="checkbox" name="courses" value="CHM 107"/>
+              <span>CHM 107</span>
+             </label>
+             <label class="checkbox-card">
+              <input type="checkbox" name="courses" value="PHY 101"/>
+              <span>PHY 101</span>
+             </label>
+             <label class="checkbox-card">
+              <input type="checkbox" name="courses" value="PHY 103"/>
+              <span>PHY 103</span>
+             </label>
+             <label class="checkbox-card">
+              <input type="checkbox" name="courses" value="PHY 107"/>
+              <span>PHY 107</span>
+             </label>
+             <label class="checkbox-card">
+              <input type="checkbox" name="courses" value="GET 101"/>
+              <span>GET 101</span>
+             </label>
+             <label class="checkbox-card">
+              <input type="checkbox" name="courses" value="COS 101"/>
+              <span>COS 101</span>
+             </label>
+             <label class="checkbox-card">
+              <input type="checkbox" name="courses" value="YOR 101"/>
+              <span>YOR 101</span>
+             </label>
+           </div> 
+         </div>       
+
+         <div id="courses-200" class="course-section" style="display: none;">
+           <label class="section-label">200 Level Courses</label>
+           <div class="checkbox-grid">
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="ENT 211"/>
+               <span>ENT 211</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="GET 201"/>
+               <span>GET 201</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="GET 203"/>
+               <span>GET 203</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="GET 207"/>
+               <span>GET 207</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="GET 209"/>
+               <span>GET 209</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="GET 211"/>
+               <span>GET 211</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="GET 205"/>
+               <span>GET 205</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="GET 213"/>
+               <span>GET 213</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="AGR 215"/>
+               <span>AGR 215</span>
+              </label>
+           </div>
+         </div> 
+
+         <div id="courses-300" class="course-section" style="display: none;">
+           <label class="section-label">300 Level Courses</label>
+           <div class="checkbox-grid">
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="GET 301"/>
+               <span>GET 301</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="GET 305"/>
+               <span>GET 305</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="CPE 301"/>
+               <span>CPE 301</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="EEE 321"/>
+               <span>EEE 321</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="CPE 305"/>
+               <span>CPE 305</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="CPE 307"/>
+               <span>CPE 307</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="GET 319"/>
+               <span>GET 319</span>
+              </label>
+            </div>
+         </div>
+
+          <div id="courses-400" class="course-section" style="display: none;">
+           <label class="section-label">400 Level Courses</label>
+           <div class="checkbox-grid">
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="GET 404"/>
+               <span>GET 404</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="CPE 401"/>
+               <span>CPE 401</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="CPE 403"/>
+               <span>CPE 403</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="CPE 405"/>
+               <span>CPE 405</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="CPE 415"/>
+               <span>CPE 415</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="CPE 409"/>
+               <span>CPE 409</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="CPE 411"/>
+               <span>CPE 411</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="CPE 413"/>
+               <span>CPE 413</span>
+              </label>
+            </div>
+          </div>
+
+          <div id="courses-500" class="course-section" style="display: none;">
+           <label class="section-label">500 Level Courses</label>
+           <div class="checkbox-grid">
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="GET 501"/>
+               <span>GET 501</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="CPE 501"/>
+               <span>CPE 501</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="CPE 505"/>
+               <span>CPE 505</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="CPE 511"/>
+               <span>CPE 511</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="CPE 515"/>
+               <span>CPE 515</span>
+              </label>
+              <label class="checkbox-card">
+               <input type="checkbox" name="courses" value="CPE 513"/>
+               <span>CPE 513</span>
+              </label>
+           </div>
+          </div>
+       
+  
+         <div class="button-group">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="reset" class="btn btn-secondary">Clear Form</button>
+         </div>
+
+        </form>  
+     </div>
+     
+
+     <script>
+        function showCourses() {
+          var dropdown =document.getElementById("level-select");
+          if (!dropdown) {
+            alert("CRITICAL ERROR: Your dropdown <select> element is missing id='level-select'!");
+            return;  
+          }
+
+          var selectedLevel = dropdown.value;
+          console.log("Selected Level is:", selectedLevel);
+
+          var sections = document.querySelectorAll(".course-section");
+          sections.forEach(function(section) {
+            section.style.display = "none";
+          });
+
+          if (selectedLevel !== "") {
+            var targetSection = document.getElementById("courses-" + selectedLevel);
+            console.log("Looking for element with ID: courses-" + selectedLevel, targetSection);
+          
+
+          if (targetSection) {
+            targetSection.style.display = "block";
+          } else {
+            alert("CRITICAL ERROR: Could not find a course section with id='courses-" + selectedLevel +"'");
+           }
+          }
+        }       
+     </script>
+
+ </body>
+</html>
