@@ -10,8 +10,8 @@
 
    <div class="form-card">
     <header class="header">
-      <img src="logo1.png" alt="University Logo" class="logo"/>
-      <img src="logo2.png" alt="NACOMES Logo" class="logo"/>
+      <img src="./images/logo1.png" alt="University Logo" class="logo"/>
+      <img src="./images/logo2.png" alt="NACOMES Logo" class="logo"/>
       <div class="header-text">  
         <h1>DEPARTMENT OF COMPUTER ENGINEERING</h1>
         <h2>CARRYOVER/RESIT COURSE REGISTRATION FORM</h2>
@@ -47,6 +47,7 @@
            <label for="text">Department:</label> 
             <select id="department" name="department" required>
                 <option value="computer engineering">Computer Engineering</option>
+               
             </select>
           </div>  
          </div> 
@@ -263,6 +264,21 @@
               </label>
            </div>
           </div>
+          
+          <!-- Dynamic WhatsApp Group Button -->
+<div class="whatsapp-btn-container" style="margin-top: 15px; margin-bottom: 20px;">
+    <a id="whatsapp-link" 
+       href="https://chat.whatsapp.com/YOUR_DEFAULT_GROUP_LINK" 
+       target="_blank" 
+       class="whatsapp-btn">
+       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+           <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/>
+       </svg>
+       Join Group
+    </a>
+</div>
+          
+
        
   
          <div class="button-group">
@@ -301,7 +317,37 @@
             alert("CRITICAL ERROR: Could not find a course section with id='courses-" + selectedLevel +"'");
            }
           }
-        }       
+        }   
+     
+       document.addEventListener('DOMContentLoaded', function () {
+    const levelDropdown = document.getElementById('level-select');
+    const whatsappLink = document.getElementById('whatsapp-link');
+
+    // WhatsApp Group invite links for each level
+    const levelGroupLinks = {
+        "100": "https://chat.whatsapp.com/FRGeSiJoH2M2BmD21vdJo6?s=cl&p=a&mlu=4&ilr=4",
+        "200": "https://chat.whatsapp.com/FRGeSiJoH2M2BmD21vdJo6?s=cl&p=a&mlu=4&ilr=4",
+        "300": "https://chat.whatsapp.com/KkoG1AHNuUX2Et1ohlxWH2?s=cl&p=a&mlu=4&ilr=4",
+        "400": "https://chat.whatsapp.com/EJTP5Un8GC1KBYICJ5uTkt?s=cl&p=a&mlu=4&ilr=4",
+        "500": "https://chat.whatsapp.com/YOUR_500_LEVEL_GROUP_LINK"
+    };
+
+    // Default group link if no level is selected yet
+    const defaultGroup = "https://chat.whatsapp.com/YOUR_DEFAULT_GROUP_LINK";
+
+    if (levelDropdown && whatsappLink) {
+        levelDropdown.addEventListener('change', function () {
+            const selectedLevel = this.value;
+
+            // Change link to the group corresponding to the selected level
+            if (levelGroupLinks[selectedLevel]) {
+                whatsappLink.href = levelGroupLinks[selectedLevel];
+            } else {
+                whatsappLink.href = defaultGroup;
+            }
+        });
+    }
+});
      </script>
 
  </body>
