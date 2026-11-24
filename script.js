@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const whatsappLink = document.getElementById('whatsapp-link');
 
     // Paste your Google Apps Script Web App URL here
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzvy0CwDsBSD8YoQ8fqmIfwC2S39UF6uf9DYc39LNruQhw-bv7QDRUnrgjIXBdXt_-3Gg/exec';
-    
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwcUmT8HkwzNHaZp1WmT7d8ODJI4mxqhomqitbwdW6nDX4zBpZCDDJ-6wVpo5DtfqmOZg/exec'    
 
     // Level-specific WhatsApp Group invite links
     const levelGroupLinks = {
