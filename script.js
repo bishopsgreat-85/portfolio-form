@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('registration-form');
+    const form = document.getElementById('registration');
     const submitBtn = document.getElementById('submit-btn');
-    const postSubmissionBox = document.getElementById('post-submission-box');
+    const successBox = document.getElementById('success-box');
     const whatsappLink = document.getElementById('whatsapp-link');
 
     // Paste your Google Apps Script Web App URL here
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbx9i-pDud7HTiZAxCc9841JfvI-JUp0eHsvn-FPVha2PRG6cwUa4JbZDeYg_RVUY_S_2A/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzvy0CwDsBSD8YoQ8fqmIfwC2S39UF6uf9DYc39LNruQhw-bv7QDRUnrgjIXBdXt_-3Gg/exec';
+    
 
     // Level-specific WhatsApp Group invite links
     const levelGroupLinks = {
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         "500": ""
     };
 
-    const defaultGroup = "https://chat.whatsapp.com/FRGeSiJoH2M2BmD21vdJo6?s=cl&p=a&mlu=4&ilr=4";
+    const defaultGroup = "";
 
     form.addEventListener('submit', function (e) {
         e.preventDefault(); // Stop the page from refreshing
@@ -29,20 +30,35 @@ document.addEventListener('DOMContentLoaded', function () {
         const formData = new FormData(form);
 
         // Send data to Google Sheets
-        fetch(scriptURL, { method: 'POST', body: formData })
+        fetch(scriptURL, {
+            method: 'POST',
+            mode: "no-cors",
+            body: new FormData(form)
+        })
+            .then(() => {
+               // 4. Hide form and reveal success box containing the WhatsApp button
+             document.getElementById('registration').style.display = 'none';
+             document.getElementById('success-box').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                if (submitBtn) submitBtn.textContent = 'Submit';
+                alert('There was an error in submitting your form. Please try again.');
+            })
             .then(response => {
                 // Set the right WhatsApp group link for the student's level
-                whatsappLink.href = levelGroupLinks[selectedLevel] || defaultGroup;
+                whatsappLink.href = levelGroupLinks[selectedLevel];
+                whatsappLink.textContent = `Join ${selectedLevel} Level Whatsapp Group`;
 
                 // Hide the form and reveal the WhatsApp Join Group button
                 form.style.display = 'none';
-                postSubmissionBox.style.display = 'block';
+                successBox.style.display = 'block';
             })
             .catch(error => {
                 console.error('Error!', error.message);
                 alert("There was an error submitting your form. Please try again.");
                 submitBtn.disabled = false;
-                submitBtn.textContent = "Submit";
+                submitBtn.textContent = "Submit Registration";
             });
     });
 });
@@ -85,11 +101,11 @@ function showCourses() {
         "200": "https://chat.whatsapp.com/DWeIiqP0yDHJKP77P9nAtA?s=cl&p=a&iam=2",
         "300": "",
         "400": "",
-        "500": "https://chat.whatsapp.com/YOUR_500_LEVEL_GROUP_LINK"
+        "500": ""
     };
 
     // Default group link if no level is selected yet
-    const defaultGroup = "https://chat.whatsapp.com/YOUR_DEFAULT_GROUP_LINK";
+    const defaultGroup = "";
 
     if (levelDropdown && whatsappLink) {
         levelDropdown.addEventListener('change', function () {
