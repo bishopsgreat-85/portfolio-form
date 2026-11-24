@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Computer Engineering</title>
-    <link rel="stylesheet" href="styles.css"/>   
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="html" href="webhook.html"/>
+    <link rel="icon" type="image/png" href="logo2.png">
  </head>
  <body> 
 
+  
+    
    <div class="form-card">
     <header class="header">
       <img src="./images/logo1.png" alt="University Logo" class="logo"/>
@@ -20,7 +24,7 @@
      
         
          
-       <form action="https://formspree.io/f/mkjodebq" method="POST" id="registration"> 
+       <form id="registration"> 
          <div class="form-row">
           <div class="form-group">
            <label for="fullName">Full Name:</label>
@@ -68,7 +72,7 @@
         
 
          <div id="courses-100" class="course-section" style="display: none;">
-           <label class="section-label">100 Level Courses</label>
+           <label class="section-label">Select the courses you want to resit for</label>
            <div class="checkbox-grid">
              <label class="checkbox-card">
               <input type="checkbox" name="courses" value="GST 111"/>
@@ -122,7 +126,7 @@
          </div>       
 
          <div id="courses-200" class="course-section" style="display: none;">
-           <label class="section-label">200 Level Courses</label>
+           <label class="section-label">Select the courses you want to resit for</label>
            <div class="checkbox-grid">
               <label class="checkbox-card">
                <input type="checkbox" name="courses" value="ENT 211"/>
@@ -164,7 +168,7 @@
          </div> 
 
          <div id="courses-300" class="course-section" style="display: none;">
-           <label class="section-label">300 Level Courses</label>
+           <label class="section-label">Select the courses you want to resit for</label>
            <div class="checkbox-grid">
               <label class="checkbox-card">
                <input type="checkbox" name="courses" value="GET 301"/>
@@ -198,7 +202,7 @@
          </div>
 
           <div id="courses-400" class="course-section" style="display: none;">
-           <label class="section-label">400 Level Courses</label>
+           <label class="section-label">Select the courses you want to resit for</label>
            <div class="checkbox-grid">
               <label class="checkbox-card">
                <input type="checkbox" name="courses" value="GET 404"/>
@@ -236,7 +240,7 @@
           </div>
 
           <div id="courses-500" class="course-section" style="display: none;">
-           <label class="section-label">500 Level Courses</label>
+           <label class="section-label">Select the courses you want to resit for</label>
            <div class="checkbox-grid">
               <label class="checkbox-card">
                <input type="checkbox" name="courses" value="GET 501"/>
@@ -266,17 +270,17 @@
           </div>
           
           <!-- Dynamic WhatsApp Group Button -->
-<div class="whatsapp-btn-container" style="margin-top: 15px; margin-bottom: 20px;">
-    <a id="whatsapp-link" 
-       href="https://chat.whatsapp.com/YOUR_DEFAULT_GROUP_LINK" 
-       target="_blank" 
-       class="whatsapp-btn">
-       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-           <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/>
-       </svg>
-       Join Group
-    </a>
-</div>
+         <div class="whatsapp-btn-container" style="margin-top: 15px; margin-bottom: 20px;">
+           <a id="whatsapp-link" 
+             href="https://chat.whatsapp.com/YOUR_DEFAULT_GROUP_LINK" 
+            target="_blank" 
+            class="whatsapp-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/>
+            </svg>
+              Join Group
+           </a>
+         </div>
           
 
        
@@ -286,69 +290,24 @@
           <button type="reset" class="btn btn-secondary">Clear Form</button>
          </div>
 
+         <div id="post-submission-box" style="display: none; margin-top: 20px; padding: 20px; border: 1px solid #25D366; border-radius: 8px; background-color: #f4fbf7; text-align: center;">
+          <h3 style="color: #128C7E; margin-top: 0;">Registration Submitted!</h3>
+          <p style="font-size: 14px; color: #333;">Click the button below to join your level's WhatsApp group:</p>
+    
+          <a id="whatsapp-link" 
+           href="https://chat.whatsapp.com/FRGeSiJoH2M2BmD21vdJo6?s=cl&p=a&mlu=4&ilr=4" 
+           target="_blank" 
+           class="whatsapp-btn">
+            Join Group
+          </a>
+         </div>
+
         </form>  
      </div>
      
 
-     <script>
-        function showCourses() {
-          var dropdown =document.getElementById("level-select");
-          if (!dropdown) {
-            alert("CRITICAL ERROR: Your dropdown <select> element is missing id='level-select'!");
-            return;  
-          }
-
-          var selectedLevel = dropdown.value;
-          console.log("Selected Level is:", selectedLevel);
-
-          var sections = document.querySelectorAll(".course-section");
-          sections.forEach(function(section) {
-            section.style.display = "none";
-          });
-
-          if (selectedLevel !== "") {
-            var targetSection = document.getElementById("courses-" + selectedLevel);
-            console.log("Looking for element with ID: courses-" + selectedLevel, targetSection);
-          
-
-          if (targetSection) {
-            targetSection.style.display = "block";
-          } else {
-            alert("CRITICAL ERROR: Could not find a course section with id='courses-" + selectedLevel +"'");
-           }
-          }
-        }   
      
-       document.addEventListener('DOMContentLoaded', function () {
-    const levelDropdown = document.getElementById('level-select');
-    const whatsappLink = document.getElementById('whatsapp-link');
-
-    // WhatsApp Group invite links for each level
-    const levelGroupLinks = {
-        "100": "https://chat.whatsapp.com/FRGeSiJoH2M2BmD21vdJo6?s=cl&p=a&mlu=4&ilr=4",
-        "200": "https://chat.whatsapp.com/FRGeSiJoH2M2BmD21vdJo6?s=cl&p=a&mlu=4&ilr=4",
-        "300": "https://chat.whatsapp.com/KkoG1AHNuUX2Et1ohlxWH2?s=cl&p=a&mlu=4&ilr=4",
-        "400": "https://chat.whatsapp.com/EJTP5Un8GC1KBYICJ5uTkt?s=cl&p=a&mlu=4&ilr=4",
-        "500": "https://chat.whatsapp.com/YOUR_500_LEVEL_GROUP_LINK"
-    };
-
-    // Default group link if no level is selected yet
-    const defaultGroup = "https://chat.whatsapp.com/YOUR_DEFAULT_GROUP_LINK";
-
-    if (levelDropdown && whatsappLink) {
-        levelDropdown.addEventListener('change', function () {
-            const selectedLevel = this.value;
-
-            // Change link to the group corresponding to the selected level
-            if (levelGroupLinks[selectedLevel]) {
-                whatsappLink.href = levelGroupLinks[selectedLevel];
-            } else {
-                whatsappLink.href = defaultGroup;
-            }
-        });
-    }
-});
-     </script>
+     <script src="script.js"></script>
 
  </body>
 </html>

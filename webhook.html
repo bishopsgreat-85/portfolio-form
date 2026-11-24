@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Webhook Form</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 40px 16px;
+    }
+
+    .form-container {
+      max-width: 420px;
+      margin: auto;
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px #0001;
+    }
+
+    input, button {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      margin-top: 12px;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    input {
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #ea4b71;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #status {
+      overflow-wrap: anywhere;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <h2>Contact Us</h2>
+    <p>Submit your details below.</p>
+
+    <form id="contactForm">
+      <input
+        type="text"
+        name="name"
+        placeholder="Your name"
+        required
+      >
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Your email"
+        required
+      >
+
+      <input
+        type="text"
+        name="message"
+        placeholder="Your message"
+        required
+      >
+
+      <button type="submit" id="submitBtn">
+        Submit
+      </button>
+    </form>
+
+    <p id="status" role="status"></p>
+  </div>
+
+  <script>
+    const webhookURL =
+      "https://jesuferanmi41.app.n8n.cloud/webhook-test/31ae563b-7fda-44c9-a241-b1778e6af863";
+
+    const form = document.getElementById("contactForm");
+    const status = document.getElementById("status");
+    const submitBtn = document.getElementById("submitBtn");
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const params = new URLSearchParams();
+
+      for (const [key, value] of formData.entries()) {
+        params.append(key, value);
+      }
+
+      const url = `${webhookURL}?${params.toString()}`;
+
+      submitBtn.disabled = true;
+      status.textContent = "Sending your details...";
+
+      try {
+        const response = await fetch(url, {
+          method: "GET"
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error ${response.status}`);
+        }
+
+        const result = await response.text();
+
+        status.textContent =
+          "Request sent successfully! " + result;
+
+        form.reset();
+
+      } catch (error) {
+        console.error(error);
+
+        status.textContent =
+          "Unable to connect. Check your webhook URL and CORS settings.";
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
