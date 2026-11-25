@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const whatsappLink = document.getElementById('whatsapp-link');
 
     // Paste your Google Apps Script Web App URL here
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwcUmT8HkwzNHaZp1WmT7d8ODJI4mxqhomqitbwdW6nDX4zBpZCDDJ-6wVpo5DtfqmOZg/exec'    
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwR97GXyukN8i54BszjS4IwUV4m-K3JRh7K9wlESxp_wYEesECIyboNTN4uW8kTiluzXg/exec';
 
     // Level-specific WhatsApp Group invite links
     const levelGroupLinks = {
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch(scriptURL, {
             method: 'POST',
             mode: "no-cors",
-            body: new FormData(form)
+            body: formData
         })
             .then(() => {
                // 4. Hide form and reveal success box containing the WhatsApp button
