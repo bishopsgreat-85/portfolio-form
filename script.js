@@ -11,9 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const levelGroupLinks = {
         "100":"https://chat.whatsapp.com/EWs38dSkngN99l8T3aPkUN?s=cl&p=a&iam=2",
         "200": "https://chat.whatsapp.com/DWeIiqP0yDHJKP77P9nAtA?s=cl&p=a&iam=2",
-        "300": "",
-        "400": "",
-        "500": ""
+        "300": "https://chat.whatsapp.com/300GroupLink",
+        "500": "https://chat.whatsapp.com/500GroupLinkc"
     };
 
     const defaultGroup = "";
