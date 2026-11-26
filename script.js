@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('registration');
+    const form = document.querySelector('form');
     const submitBtn = document.getElementById('submit-btn');
     const successBox = document.getElementById('success-box');
     const whatsappLink = document.getElementById('whatsapp-link');
@@ -11,8 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const levelGroupLinks = {
         "100":"https://chat.whatsapp.com/EWs38dSkngN99l8T3aPkUN?s=cl&p=a&iam=2",
         "200": "https://chat.whatsapp.com/DWeIiqP0yDHJKP77P9nAtA?s=cl&p=a&iam=2",
-        "300": "https://chat.whatsapp.com/300GroupLink",
-        "500": "https://chat.whatsapp.com/500GroupLinkc"
+        "300": "",        "500": ""
     };
 
     const defaultGroup = "";
@@ -27,12 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const selectedLevel = document.getElementById('level-select').value;
         const formData = new FormData(form);
 
-        // Send data to Google Sheets
-        fetch(scriptURL, {
-            method: 'POST',
-            mode: "no-cors",
-            body: formData
-        })
+         fetch(scriptURL, {
+             method: 'POST',
+             mode: 'no-cors',
+             body: new URLSearchParams(new FormData(form))
+    })
             .then(() => {
                // 4. Hide form and reveal success box containing the WhatsApp button
              document.getElementById('registration').style.display = 'none';
